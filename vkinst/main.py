@@ -23,6 +23,8 @@ def main(config_path):
 
     VKUploader(path_to_config=config_path)
 
+    input("Script finished")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
