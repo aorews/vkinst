@@ -1,0 +1,37 @@
+{
+    "vk": {
+      "login": "vk phone number",
+      "pass": "vk password"
+    },
+    "inst": {
+      "login": "instagram login",
+      "pass": "instagram passwpord"
+    },
+    "download_instagram": {
+      "posts": true,
+      "stories": true
+    },
+    "session_path" : "session/instagram.session",
+    "download_folder" : "instagram_downloads",
+    "shortcodes_path" : "instagram_downloads/shortcodes.pkl",
+    "upload_config_path" : "instagram_downloads/upload_config.json",
+    "Links": [
+        {
+          "link": "username1",
+          "post_photo": "https://vk.com/album-101_293",
+          "stories_photo": "https://vk.com/album-101_293",
+          "post_video": "https://vk.com/videos-101?section=album_4",
+          "stories_video": "https://vk.com/videos-101?section=album_4",
+          "posts_to_check": -1,
+          "userid": 2425
+        },
+        {
+          "link": "username2",
+          "post_photo": "https://vk.com/album-382_239",
+          "stories_photo": "https://vk.com/album-382_239",
+          "post_video": "https://vk.com/videos-382?section=album_497",
+          "stories_video": null,
+          "posts_to_check": 15,
+          "userid": 362913
+        }
+  }
