@@ -13,6 +13,8 @@ logger = logging.getLogger(__name__)
 def main(config_path):
     try:
         set_logger()
+        
+        logger.info("Script started")
 
         config = BaseConfig(path=config_path).config
 
@@ -26,7 +28,8 @@ def main(config_path):
         UploadConfig(path=config_path)
 
         VKUploader(path_to_config=config_path)
-
+        
+        logger.info("Script finished")
         input("Script finished")
 
     except Exception as e:
