@@ -1,4 +1,5 @@
 import argparse
+import logging
 
 from vkinst.configs.base_config import BaseConfig
 from vkinst.configs.upload_config import UploadConfig
