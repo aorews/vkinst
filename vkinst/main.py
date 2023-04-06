@@ -6,24 +6,30 @@ from vkinst.instagram.instagram_downloader import InstagramDownloader
 from vkinst.logger import set_logger
 from vkinst.vk.vk_uploader import VKUploader
 
+logger = logging.getLogger(__name__)
+
 
 def main(config_path):
-    set_logger()
+    try:
+        set_logger()
 
-    config = BaseConfig(path=config_path).config
+        config = BaseConfig(path=config_path).config
 
-    loader = InstagramDownloader(path_to_config=config_path)
+        loader = InstagramDownloader(path_to_config=config_path)
 
-    if config["download_instagram"]["posts"]:
-        loader.download_posts()
-    if config["download_instagram"]["stories"]:
-        loader.download_stories()
+        if config["download_instagram"]["posts"]:
+            loader.download_posts()
+        if config["download_instagram"]["stories"]:
+            loader.download_stories()
 
-    UploadConfig(path=config_path)
+        UploadConfig(path=config_path)
 
-    VKUploader(path_to_config=config_path)
+        VKUploader(path_to_config=config_path)
 
-    input("Script finished")
+        input("Script finished")
+
+    except Exception as e:
+        logger.error(e)
 
 
 if __name__ == "__main__":
