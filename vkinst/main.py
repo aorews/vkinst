@@ -18,11 +18,15 @@ def main(config_path):
 
         config = BaseConfig(path=config_path).config
 
-        loader = InstagramDownloader(path_to_config=config_path)
+        download_posts = config["download_instagram"]["posts"]
+        download_stories = config["download_instagram"]["stories"]
 
-        if config["download_instagram"]["posts"]:
+        if download_posts or download_stories:
+            loader = InstagramDownloader(path_to_config=config_path)
+
+        if download_posts:
             loader.download_posts()
-        if config["download_instagram"]["stories"]:
+        if download_stories:
             loader.download_stories()
 
         UploadConfig(path=config_path)
