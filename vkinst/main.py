@@ -28,12 +28,13 @@ def main(config_path):
         UploadConfig(path=config_path)
 
         VKUploader(path_to_config=config_path)
-        
-        logger.info("Script finished")
-        input("Script finished")
 
     except Exception as e:
         logger.error(e)
+    
+    finally:
+        logger.info("Script finished")
+        input("")
 
 
 if __name__ == "__main__":
