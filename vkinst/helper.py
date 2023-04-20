@@ -36,3 +36,7 @@ def wait_between_requests(func):
         return result
 
     return wrapper
+
+
+def replace_at_links(text):
+    return text.replace("@", "@ ")

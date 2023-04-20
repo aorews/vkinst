@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from vkinst.configs.base_config import BaseConfig
-from vkinst.helper import get_dict_element, get_folder_names
+from vkinst.helper import get_dict_element, get_folder_names, replace_at_links
 
 
 class UploadConfig(BaseConfig):
@@ -36,13 +36,18 @@ class UploadConfig(BaseConfig):
         ]
         for post_json in post_json_list:
             post_config = BaseConfig(Path(path_to_profile, post_json)).config
+
             shortcode = post_json.replace(".json", "")
+            caption = replace_at_links(
+                get_dict_element(
+                    post_config, "node.edge_media_to_caption.edges.node.text"
+                )
+            )
+
             post_info = {
                 "shortcode": shortcode,
                 "post_type": get_dict_element(post_config, "instaloader.node_type"),
-                "caption": get_dict_element(
-                    post_config, "node.edge_media_to_caption.edges.node.text"
-                ),
+                "caption": caption,
                 "username": username,
                 "timestamp": get_dict_element(post_config, "node.taken_at_timestamp"),
             }
