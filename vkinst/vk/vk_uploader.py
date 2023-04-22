@@ -3,7 +3,7 @@ import os
 import re
 import webbrowser
 from datetime import datetime
-from functools import cache
+from functools import lru_cache
 
 import vk_api
 
@@ -111,7 +111,7 @@ class VKUploader:
 
         return group_id, album_id
 
-    @cache
+    @lru_cache(maxsize=None)
     def get_group_album_id(self, album_link):
         if album_link is None:
             return None, None
